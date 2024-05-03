@@ -1,0 +1,186 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "task": "Buy shoe",
+      "completed": false,
+      "priority": "lo",
+      "dueDate": "2024-05-10"
+    },
+    {
+      "id": "2",
+      "task": "house",
+      "completed": false,
+      "priority": "Medium",
+      "dueDate": "2024-05-15"
+    },
+    {
+      "id": "4759",
+      "task": "cleaning the house",
+      "priority": "rrfeffe",
+      "dueDate": "ggrfferf",
+      "completed": false
+    },
+    {
+      "id": "9b13",
+      "task": "",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "25dd",
+      "task": "xdgfvjghn",
+      "priority": "xcvgbn",
+      "dueDate": "ghfjg",
+      "completed": false
+    },
+    {
+      "id": "f2e8",
+      "task": "",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "4232",
+      "task": "dfhgj",
+      "priority": "cghvgj",
+      "dueDate": "vb",
+      "completed": false
+    },
+    {
+      "id": "55af",
+      "task": "vb",
+      "priority": "xcbvnb",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "c5c2",
+      "task": "",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "1afe",
+      "task": "er",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "98c6",
+      "task": "rt",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "272d",
+      "task": "fer",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "2073",
+      "task": " n",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "f4c4",
+      "task": " nnn",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "9661",
+      "task": "vnb",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "0039",
+      "task": "vbn",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "06aa",
+      "task": "bjhh",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "c3dc",
+      "task": "tt",
+      "priority": "vnb",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "1935",
+      "task": "hbjn",
+      "priority": "hbjmnb",
+      "dueDate": "bn",
+      "completed": false
+    },
+    {
+      "id": "5f48",
+      "task": "yu",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "e01d",
+      "task": "ty",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "1af5",
+      "task": "dcju",
+      "priority": "jgcdh",
+      "dueDate": "hjfd",
+      "completed": false
+    },
+    {
+      "id": "c8ce",
+      "task": "vfkdhfnv",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "ecb7",
+      "task": "78",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "a06d",
+      "task": "",
+      "priority": "",
+      "dueDate": "",
+      "completed": false
+    },
+    {
+      "id": "9d57",
+      "task": "hg",
+      "priority": "bh",
+      "dueDate": "hg",
+      "completed": false
+    }
+  ]
+}

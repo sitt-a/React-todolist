@@ -1,0 +1,100 @@
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+
+const Addtask = ({ onTaskAdded,onclose }) => {
+  const [newTask, setNewTask] = useState('');
+  const [priority, setPriority] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const history = useHistory();
+
+  const handleNewTaskChange = (e) => {
+    setNewTask(e.target.value);
+  };
+
+  const handlePriorityChange = (e) => {
+    setPriority(e.target.value);
+  };
+
+  const handleDueDateChange = (e) => {
+    setDueDate(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    const taskObject = {
+      task: newTask,
+      priority: priority,
+      dueDate: dueDate,
+      completed: false,
+    };
+
+    addTaskToDatabase(taskObject, onTaskAdded);
+
+    setNewTask('');
+    setPriority('');
+    setDueDate('');
+
+    history.push('/');
+  };
+
+  const addTaskToDatabase = (taskObject, onTaskAdded) => {
+    fetch('http://localhost:3000/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(taskObject),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('New task added:', data);
+        onTaskAdded(); // Call the onTaskAdded callback after the task is added
+        onclose()
+      })
+      .catch(error => console.log(error));
+  };
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 text-red-500">
+      <div className="bg-white p-4 rounded-lg shadow-lg">
+        <h2 className="text-xl font-bold mb-4">Add Task</h2>
+        <div>
+          <label className="block mb-2">Task:</label>
+          <input
+            type="text"
+            value={newTask}
+            onChange={handleNewTaskChange}
+            className="border border-gray-300 rounded px-2 py-1 mb-2"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Priority:</label>
+          <input
+            type="text"
+            value={priority}
+            onChange={handlePriorityChange}
+            className="border border-gray-300 rounded px-2 py-1 mb-2"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Due Date:</label>
+          <input
+            type="text"
+            value={dueDate}
+            onChange={handleDueDateChange}
+            className="border border-gray-300 rounded px-2 py-1 mb-2"
+          />
+        </div>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 text-white py-2 px-4 rounded"
+        >
+          Submit
+        </button>
+        <button onClick={onclose}>close</button>
+      </div>
+    </div>
+  );
+};
+
+export default Addtask;
