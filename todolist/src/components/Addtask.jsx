@@ -53,7 +53,9 @@ const Addtask = ({ onTaskAdded,onclose }) => {
       })
       .catch(error => console.log(error));
   };
-
+  const handleClose = () => {
+    onclose(); // Call the function passed as the onclose prop
+  };
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 text-red-500">
       <div className="bg-white p-4 rounded-lg shadow-lg">
@@ -91,7 +93,7 @@ const Addtask = ({ onTaskAdded,onclose }) => {
         >
           Submit
         </button>
-        <button onClick={onclose}>close</button>
+        <button onClick={handleClose}>close</button>
       </div>
     </div>
   );

@@ -1,49 +1,15 @@
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import Home from './Home'
-const data = [
-  { name: 'Jan', value: 400 },
-  { name: 'Feb', value: 300 },
-  { name: 'Mar', value: 500 },
-  { name: 'Apr', value: 400 },
-  { name: 'May', value: 600 },
-];
-
-const OverviewContent = () => {
-  return (
-    <>
-      <h2 className="text-xl font-bold mb-4">Sales Overview</h2>
-      <LineChart width={600} height={400} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="value" stroke="#8884d8" />
-      </LineChart>
-    </>
-  );
-};
-
-const ReportsContent = () => {
-  return (
-    <>
-     <Home/>
-    </>
-  );
-};
-
-const SettingsContent = () => {
-  return (
-    <>
-      <h2 className="text-xl font-bold mb-4">Settings</h2>
-      {/* Your settings content goes here */}
-    </>
-  );
-};
+import React, { useContext,useState,useEffect } from 'react';
+import Home from './Home';
+import Addtask from '../components/Addtask';
+import { TaskContext } from './TaskContext'; // Import the TaskContext
 
 const Dashboard = () => {
+  const { todos,showOverlay, fetchTodos, handleAddTaskClick, handleOverlayClose, handleTaskAdded } = useContext(TaskContext);
   const [selectedLink, setSelectedLink] = useState('overview');
+
+  useEffect(() => {
+    fetchTodos(); // Call fetchTodos from the context on component mount
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">
@@ -57,30 +23,41 @@ const Dashboard = () => {
               className={`mb-4 ${selectedLink === 'overview' ? 'font-bold' : ''}`}
               onClick={() => setSelectedLink('overview')}
             >
-              <a href="#" className="text-blue-600 hover:text-blue-800">
-                Overview
-              </a>
+              <button className="text-blue-600 hover:text-blue-800">
+                Home
+              </button>
             </li>
             <li
               className={`mb-4 ${selectedLink === 'reports' ? 'font-bold' : ''}`}
               onClick={() => setSelectedLink('reports')}
             >
-              <a href="#" className="text-blue-600 hover:text-blue-800">
+              <button className="text-blue-600 hover:text-blue-800">
                 Reports
-              </a>
+              </button>
             </li>
             <li
               className={`mb-4 ${selectedLink === 'settings' ? 'font-bold' : ''}`}
               onClick={() => setSelectedLink('settings')}
             >
-              <a href="#" className="text-blue-600 hover:text-blue-800">
+              <button className="text-blue-600 hover:text-blue-800">
                 Settings
-              </a>
+              </button>
+            </li>
+            <li className="text-black" >
+              <button className="text-blue-600 hover:text-blue-800" onClick={handleAddTaskClick}>
+                Add task
+              </button>
+              {showOverlay && (
+                <div className="overlay">
+                  <Addtask onTaskAdded={handleTaskAdded} onclose={handleOverlayClose} />
+                </div>
+              )}
             </li>
           </ul>
         </nav>
+
         <main className="flex-1 p-6">
-          {selectedLink === 'overview' && <OverviewContent />}
+          {selectedLink === 'overview' && <Home todos={todos} />} {/* Pass todos from context to Home */}
           {selectedLink === 'reports' && <ReportsContent />}
           {selectedLink === 'settings' && <SettingsContent />}
         </main>
