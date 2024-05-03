@@ -23,6 +23,7 @@ function Home() {
       .then(() => {
         fetchTodos();
         setIsDeleting(false);
+        setSelectedTodoId(null); 
       })
       .catch((error) => {
         setIsDeleting(false);
@@ -123,10 +124,13 @@ function Home() {
       </ul>
 
       {selectedTodoId &&
-       <TodoDetailOverlay
-       todo={todos.find((todo) => todo.id === selectedTodoId)}
-       onClose={handleCloseDetailOverlay}
-     />
+        <TodoDetailOverlay
+        todo={todos.find((todo) => todo.id === selectedTodoId)}
+        onClose={handleCloseDetailOverlay}
+        onDelete={handleDelete}
+        onEdit={handleEdit}
+        onUpdate={handleUpdateTodo}
+      />
       }
     </div>
   );
