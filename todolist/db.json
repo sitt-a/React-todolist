@@ -1,13 +1,6 @@
 {
   "todos": [
     {
-      "id": "2",
-      "task": "hou",
-      "completed": false,
-      "priority": "Medium",
-      "dueDate": "2024-05-15"
-    },
-    {
       "id": "4759",
       "task": "cleaning the house",
       "priority": "rrfeffe",
@@ -19,55 +12,6 @@
       "task": "dfhgj",
       "priority": "cghvgj",
       "dueDate": "vb",
-      "completed": false
-    },
-    {
-      "id": "55af",
-      "task": "vb",
-      "priority": "xcbvnb",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "c5c2",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "1afe",
-      "task": "er",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "98c6",
-      "task": "rt",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "272d",
-      "task": "fer",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "2073",
-      "task": " n",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "f4c4",
-      "task": " nnn",
-      "priority": "",
-      "dueDate": "",
       "completed": false
     },
     {
@@ -169,28 +113,7 @@
       "completed": false
     },
     {
-      "id": "0092",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "b9d1",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
       "id": "3271",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "3180",
       "task": "",
       "priority": "",
       "dueDate": "",
@@ -200,13 +123,6 @@
       "id": "81d1",
       "task": "him",
       "priority": "14",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "cee8",
-      "task": "",
-      "priority": "",
       "dueDate": "",
       "completed": false
     },

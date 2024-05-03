@@ -11,6 +11,7 @@ const TaskContext = createContext({
 const TaskProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [showOverlay2, setShowOverlay2] = useState(false);
 
   useEffect(() => {
     fetchTodos();
@@ -34,6 +35,15 @@ const TaskProvider = ({ children }) => {
     setShowOverlay(false);
   };
 
+ 
+  const handleAddTaskClick2 = () => {
+    setShowOverlay2(true);
+  };
+
+  const handleOverlayClose2 = () => {
+    setShowOverlay2(false);
+  };
+
   const handleTaskAdded = () => {
     fetchTodos(); // Refetch the todos after a new task is added
   };
@@ -41,9 +51,12 @@ const TaskProvider = ({ children }) => {
   const value = {
     todos,
     showOverlay,
+    showOverlay2,
     fetchTodos,
     handleAddTaskClick,
     handleOverlayClose,
+    handleAddTaskClick2,
+    handleOverlayClose2,
     handleTaskAdded,
   };
 

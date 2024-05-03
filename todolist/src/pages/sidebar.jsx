@@ -4,7 +4,7 @@ import Addtask from '../components/Addtask';
 import { TaskContext } from './TaskContext'; // Import the TaskContext
 
 const Dashboard = () => {
-  const { todos,showOverlay, fetchTodos, handleAddTaskClick, handleOverlayClose, handleTaskAdded } = useContext(TaskContext);
+  const { todos,showOverlay,showOverlay2, fetchTodos, handleAddTaskClick, handleOverlayClose, handleTaskAdded } = useContext(TaskContext);
   const [selectedLink, setSelectedLink] = useState('overview');
 
   useEffect(() => {

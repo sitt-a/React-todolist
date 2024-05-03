@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import TodolistEditModal from '../components/TodolistEdit';
 
-const TodolistDetail = ({ match }) => {
+const TodolistDetail = ({ id }) => {
   const [todo, setTodo] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const history = useHistory();
@@ -11,7 +11,7 @@ const TodolistDetail = ({ match }) => {
   const handleDelete = () => {
     setIsDeleting(true);
   
-    fetch(`http://localhost:3000/todos/${todo.id}`, {
+    fetch(`http://localhost:3000/todos/${id}`, {
       method: 'DELETE',
     })
       .then(() => {
@@ -26,9 +26,9 @@ const TodolistDetail = ({ match }) => {
   
 
   useEffect(() => {
-    const todoId = match.params.id;
+   
 
-    fetch(`http://localhost:3000/todos/${todoId}`) // Replace with the appropriate URL for your API
+    fetch(`http://localhost:3000/todos/${id}`) // Replace with the appropriate URL for your API
       .then(response => response.json())
       .then(data => setTodo(data))
       .catch(error => console.log(error));
