@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import AddTaskOverlay from '../components/Addtask';
 import { TaskContext } from './TaskContext'; // Import the TaskContext
 import TodolistEditModal from '../components/TodolistEdit';
-
+import { Trash, Pen } from 'lucide-react';
+import TodoDetailOverlay from './todolistdetail';
 function Home() {
   const { todos, fetchTodos, handleAddTaskClick, handleOverlayClose, handleTaskAdded } = useContext(TaskContext);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditingTodos, setIsEditingTodos] = useState({});
   const [hoveredTodoId, setHoveredTodoId] = useState(null);
+  const [selectedTodoId, setSelectedTodoId] = useState(null);
 
+  // Rest of the component code...
+
+ 
   const handleDelete = (id) => {
     setIsDeleting(true);
     fetch(`http://localhost:3000/todos/${id}`, {
@@ -55,6 +60,14 @@ function Home() {
     setHoveredTodoId(null);
   };
 
+  const handleTodoClick = (todo) => {
+    setSelectedTodoId(todo.id);
+  };
+
+  const handleCloseDetailOverlay = () => {
+    setSelectedTodoId(null);
+  };
+
   return (
     <div>
       <h1>To-Do List</h1>
@@ -71,38 +84,50 @@ function Home() {
           ) : (
             <li
               key={todo.id}
-              className="border p-2 m-4 rounded"
+              className="relative border p-4 m-4 rounded"
               onMouseEnter={() => handleMouseEnter(todo.id)}
               onMouseLeave={handleMouseLeave}
-              style={{
-                position: 'relative',
-                paddingRight: '100px',
-              }}
+              onClick={() => handleTodoClick(todo)}
             >
               <h2>Task: {todo.task}</h2>
               <div
+                className="absolute top-0 right-2 flex gap-2"
                 style={{
-                  position: 'absolute',
-                  top: '50%',
-                  right: '10px',
-                  transform: 'translateY(-50%)',
-                  display: hoveredTodoId === todo.id ? 'block' : 'none',
+                  display: hoveredTodoId === todo.id ? 'flex' : 'none',
                 }}
               >
                 <button
                   key={todo.id}
                   disabled={isDeleting}
-                  onClick={() => handleDelete(todo.id)}
-                  style={{ marginRight: '0.5rem' }}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Stop the click event from propagating to the li
+                    handleDelete(todo.id);
+                  }}
+                  className=" text-gray-300 rounded-full p-2"
                 >
-                  {isDeleting ? 'Deleting...' : 'Delete'}
+                  <Trash />
                 </button>
-                <button onClick={() => handleEdit(todo.id)}>Edit</button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Stop the click event from propagating to the li
+                    handleEdit(todo.id);
+                  }}
+                  className=" text-gray-300 rounded-full p-2"
+                >
+                  <Pen />
+                </button>
               </div>
             </li>
           )
         ))}
       </ul>
+
+      {selectedTodoId &&
+       <TodoDetailOverlay
+       todo={todos.find((todo) => todo.id === selectedTodoId)}
+       onClose={handleCloseDetailOverlay}
+     />
+      }
     </div>
   );
 }
