@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 
-const TodolistEditModal = ({ onClose, onUpdate }) => {
-  const { id } = useParams();
+const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
+  
   const history = useHistory();
   const [task, setTask] = useState('');
   const [completed, setCompleted] = useState(false);
