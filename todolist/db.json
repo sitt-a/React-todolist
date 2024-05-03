@@ -2,23 +2,9 @@
   "todos": [
     {
       "id": "4759",
-      "task": "cleaning the house",
+      "task": "cleaning the",
       "priority": "rrfeffe",
       "dueDate": "ggrfferf",
-      "completed": false
-    },
-    {
-      "id": "4232",
-      "task": "dfhgj",
-      "priority": "cghvgj",
-      "dueDate": "vb",
-      "completed": false
-    },
-    {
-      "id": "9661",
-      "task": "vnb",
-      "priority": "",
-      "dueDate": "",
       "completed": false
     },
     {
@@ -73,111 +59,6 @@
     {
       "id": "c8ce",
       "task": "vfkdhfnv",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "ecb7",
-      "task": "78",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "a06d",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "9d57",
-      "task": "hg",
-      "priority": "bh",
-      "dueDate": "hg",
-      "completed": false
-    },
-    {
-      "id": "a5d4",
-      "task": ",jkh ",
-      "priority": "hjg",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "8e19",
-      "task": "essjkw",
-      "priority": "edn",
-      "dueDate": "ed",
-      "completed": false
-    },
-    {
-      "id": "3271",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "81d1",
-      "task": "him",
-      "priority": "14",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "f418",
-      "task": "jij",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "2f0e",
-      "task": "hg",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "b264",
-      "task": "hn",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "74b7",
-      "task": "nm",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "8792",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "6089",
-      "task": "",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "658b",
-      "task": " gh",
-      "priority": "",
-      "dueDate": "",
-      "completed": false
-    },
-    {
-      "id": "8f03",
-      "task": "",
       "priority": "",
       "dueDate": "",
       "completed": false
