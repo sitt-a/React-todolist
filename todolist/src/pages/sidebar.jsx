@@ -1,69 +1,95 @@
-import React, { useContext,useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Home from './Home';
 import Addtask from '../components/Addtask';
-import { TaskContext } from './TaskContext'; // Import the TaskContext
-
+import { TaskContext } from './TaskContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faBars,  faSearch, faPlus ,faCalendar} from '@fortawesome/free-solid-svg-icons'; // Import icons
 const Dashboard = () => {
-  const { todos,showOverlay,showOverlay2, fetchTodos, handleAddTaskClick, handleOverlayClose, handleTaskAdded } = useContext(TaskContext);
-  const [selectedLink, setSelectedLink] = useState('overview');
+const {
+todos,
+showOverlay,
+showOverlay2,
+fetchTodos,
+handleAddTaskClick,
+handleOverlayClose,
+handleTaskAdded
+} = useContext(TaskContext);
+const [selectedLink, setSelectedLink] = useState('overview');
+const [sidebarVisible, setSidebarVisible] = useState(true); // Add sidebar visibility state
 
-  useEffect(() => {
-    fetchTodos(); // Call fetchTodos from the context on component mount
-  }, []);
+useEffect(() => {
+fetchTodos();
+}, []);
 
-  return (
-    <div className="flex flex-col h-screen">
-      <header className="bg-gray-800 text-white py-4 px-6">
-        <h1 className="text-2xl font-bold">My Dashboard</h1>
-      </header>
-      <div className="flex flex-1">
-        <nav className="bg-gray-200 p-6 mr-6">
-          <ul>
-            <li
-              className={`mb-4 ${selectedLink === 'overview' ? 'font-bold' : ''}`}
-              onClick={() => setSelectedLink('overview')}
-            >
-              <button className="text-blue-600 hover:text-blue-800">
-                Home
-              </button>
-            </li>
-            <li
-              className={`mb-4 ${selectedLink === 'reports' ? 'font-bold' : ''}`}
-              onClick={() => setSelectedLink('reports')}
-            >
-              <button className="text-blue-600 hover:text-blue-800">
-                Reports
-              </button>
-            </li>
-            <li
-              className={`mb-4 ${selectedLink === 'settings' ? 'font-bold' : ''}`}
-              onClick={() => setSelectedLink('settings')}
-            >
-              <button className="text-blue-600 hover:text-blue-800">
-                Settings
-              </button>
-            </li>
-            <li className="text-black" >
-              <button className="text-blue-600 hover:text-blue-800" onClick={handleAddTaskClick}>
-                Add task
-              </button>
-              {showOverlay && (
-                <div className="overlay">
-                  <Addtask onTaskAdded={handleTaskAdded} onclose={handleOverlayClose} />
-                </div>
-              )}
-            </li>
-          </ul>
-        </nav>
+const toggleSidebar = () => {
+setSidebarVisible(!sidebarVisible);
+};
 
-        <main className="flex-1 p-6">
-          {selectedLink === 'overview' && <Home todos={todos} />} {/* Pass todos from context to Home */}
-          {selectedLink === 'reports' && <ReportsContent />}
-          {selectedLink === 'settings' && <SettingsContent />}
-        </main>
-      </div>
-    </div>
-  );
+return (
+<div className="flex flex-col h-screen">
+
+
+  <div className="sidebar flex flex-1 ">
+  
+      <nav className="bg-[#f1f1c9]  ">
+     
+
+      <button className="toggle-button flex px-3 mt-5 " onClick={toggleSidebar}>
+          <FontAwesomeIcon  className="justify-center items-center w-8" icon={ faBars} size='1x' />
+          
+        </button>
+      {sidebarVisible && ( 
+        <div className='p-3'>
+        <ul className='items-start mr-0 pr'>
+           <li className="text-black  mt-6">
+            <button className="text-green-800 hover:bg-[#e0e0ba] ease-in pl-2 pr-36 py-2 rounded-md  active:bg-[#b8b898]" onClick={handleAddTaskClick}>
+              <span className="icon mr-4 "><FontAwesomeIcon icon={faPlus} className="plus-icon" /></span>Add task
+            </button>
+            {showOverlay && (
+              <div className="overlay">
+                <Addtask onTaskAdded={handleTaskAdded} onclose={handleOverlayClose} />
+              </div>
+            )}
+          </li>
+        
+          <li
+            className={` ${selectedLink === 'reports' ? 'font-bold' : ''}`}
+            onClick={() => setSelectedLink('reports')}
+          >
+            <button className="text-green-950 hover:bg-[#e0e0ba] ease-in pl-2 pr-40 py-2 rounded-md  active:bg-[#b8b898]">
+            <span className='icon mr-4'><FontAwesomeIcon icon={faSearch} /></span>
+          Search
+            </button>
+          </li>
+          <li
+           
+            onClick={() => setSelectedLink('overview')}
+          >
+            <button className="text-green-950 hover:bg-[#e0e0ba] ease-in pl-2 pr-36 py-2 rounded-md  active:bg-[#b8b898]">
+            <FontAwesomeIcon icon={faCalendar} className="mr-4" />Home
+            </button>
+          </li>
+          <li
+          
+            onClick={() => setSelectedLink('settings')}
+          >
+            <button className="text-gray-850 hover:bg-[#e0e0ba] ease-in pl-2 pr-36 py-2 rounded-md  active:bg-[#b8b898]">
+            <FontAwesomeIcon icon={faCalendar} className="mr-4" />Settings
+            </button>
+          </li>
+         
+        </ul></div>)}
+      </nav>
+    
+
+    <main className="flex-1 px-32 py-12">
+      {selectedLink === 'overview' && <Home todos={todos} />}
+      {selectedLink === 'reports' && <ReportsContent />}
+      {selectedLink === 'settings' && <SettingsContent />}
+    </main>
+  </div>
+</div>
+);
 };
 
 export default Dashboard;

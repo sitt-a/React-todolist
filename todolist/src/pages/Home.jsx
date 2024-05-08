@@ -71,7 +71,7 @@ function Home() {
 
   return (
     <div>
-      <h1>To-Do List</h1>
+      <h1 className='border-b'>To-Do List</h1>
       <ul>
         {todos.map((todo) => (
           isEditingTodos[todo.id] ? ( // Conditionally render the TodolistEditModal component
@@ -85,14 +85,15 @@ function Home() {
           ) : (
             <li
               key={todo.id}
-              className="relative border p-4 m-4 rounded"
+              className="relative border-b p-2 m-4 rounded"
               onMouseEnter={() => handleMouseEnter(todo.id)}
               onMouseLeave={handleMouseLeave}
               onClick={() => handleTodoClick(todo)}
             >
               <h2>Task: {todo.task}</h2>
+              <p>duedate: {todo.dueDate}</p>
               <div
-                className="absolute top-0 right-2 flex gap-2"
+                className="absolute top-2 right-2 flex gap-2"
                 style={{
                   display: hoveredTodoId === todo.id ? 'flex' : 'none',
                 }}
