@@ -91,7 +91,7 @@ function Home() {
               onClick={() => handleTodoClick(todo)}
             >
               <h2>Task: {todo.task}</h2>
-              <p>duedate: {todo.dueDate}</p>
+              <p>Due date: {todo.dueDate && new Date(todo.dueDate).toLocaleDateString('en-US')}</p>
               <div
                 className="absolute top-2 right-2 flex gap-2"
                 style={{

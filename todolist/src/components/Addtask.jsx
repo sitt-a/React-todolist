@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Draggable from 'react-draggable';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Addtask = ({ onTaskAdded, onclose }) => {
   const [newTask, setNewTask] = useState('');
   const [priority, setPriority] = useState('');
-  const [dueDate, setDueDate] = useState('');
+  const [dueDate, setDueDate] = useState(new Date());
   const history = useHistory();
 
   const handleNewTaskChange = (e) => {
@@ -16,8 +18,8 @@ const Addtask = ({ onTaskAdded, onclose }) => {
     setPriority(e.target.value);
   };
 
-  const handleDueDateChange = (e) => {
-    setDueDate(e.target.value);
+  const handleDueDateChange = (date) => {
+    setDueDate(date);
   };
 
   const handleSubmit = () => {
@@ -60,43 +62,50 @@ const Addtask = ({ onTaskAdded, onclose }) => {
 
   return (
     <Draggable>
-      <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="bg-white p-4 rounded-lg shadow-2xl cursor-move">
+      <div className="fixed top-24 left-16 right-2 flex items-center justify-center z-50 ">
+        <div className="bg-white py-4 px-10 rounded-lg shadow-2xl cursor-move">
           <h2 className="text-xl font-bold mb-4">Add Task</h2>
-          <div>
-            <label className="block mb-2">Task:</label>
+          <div className='diplay-block'>
+            <label className="block mb-2 border-none">Task:</label>
             <input
               type="text"
               value={newTask}
               onChange={handleNewTaskChange}
-              className="border border-gray-300 rounded px-2 py-1 mb-2"
+              className="rounded px-2 py-1 mb-2"
+              placeholder="Task name"
+              required
             />
+          </div>
+
+         <div className="flex justify-around space-x-6 py-2">
+
+          <div>
+            
+             <select value={priority} onChange={handlePriorityChange}>
+        <option value="">Select a priority</option>
+        <option value="priority 1">priority 1</option>
+        <option value="priority 2">priority 2</option>
+        <option value="priority 3">priority 3</option>
+      </select>
           </div>
           <div>
-            <label className="block mb-2">Priority:</label>
-            <input
-              type="text"
-              value={priority}
-              onChange={handlePriorityChange}
-              className="border border-gray-300 rounded px-2 py-1 mb-2"
-            />
+            <label className="block mb-2"> Choose Due Date:</label>
+
+             <DatePicker
+        selected={dueDate}
+        onChange={handleDueDateChange}
+        className="border border-gray-300 rounded px-2 py-1 mb-2"
+        required
+      />
           </div>
-          <div>
-            <label className="block mb-2">Due Date:</label>
-            <input
-              type="text"
-              value={dueDate}
-              onChange={handleDueDateChange}
-              className="border border-gray-300 rounded px-2 py-1 mb-2"
-            />
           </div>
-          <button
+          <div className='flex justify-between'><button
             onClick={handleSubmit}
-            className="bg-blue-500 text-white py-2 px-4 rounded"
+            className="text-white bg-[#645323] hover:bg-[#746029] focus:text-white ease-in  py-1 px-6 rounded-md "
           >
             Submit
           </button>
-          <button onClick={handleClose}>close</button>
+          <button className="border py-1 px-6 rounded-md" onClick={handleClose}>Close</button></div>
         </div>
       </div>
     </Draggable>
