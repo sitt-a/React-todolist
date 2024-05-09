@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
-  
+const TodolistEditModal = ({ onClose, onUpdate, id }) => {
   const history = useHistory();
   const [task, setTask] = useState('');
   const [completed, setCompleted] = useState(false);
@@ -18,7 +19,7 @@ const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
         setTask(data.task);
         setCompleted(data.completed);
         setPriority(data.priority);
-        setDueDate(data.dueDate);
+        setDueDate(data.dueDate ? new Date(data.dueDate).toLocaleDateString('en-US') : '');
       })
       .catch((error) => console.log(error));
   }, [id]);
@@ -49,12 +50,11 @@ const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close-button" onClick={onClose}>
-          &times;
-        </span>
-        <h1>Edit To-Do List Item</h1>
+       
+        <h1 className=''>Edit To-Do List Item</h1>
         <form onSubmit={handleSubmit}>
-          <label>
+          <div className='flex flex-col p-4'>
+          <label className='pb-2'>
             Task:
             <input
               type="text"
@@ -62,7 +62,7 @@ const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
               onChange={(e) => setTask(e.target.value)}
             />
           </label>
-          <label>
+          <label className='pb-2'>
             Completed:
             <input
               type="checkbox"
@@ -70,25 +70,41 @@ const TodolistEditModal = ({ onClose, onUpdate ,id}) => {
               onChange={(e) => setCompleted(e.target.checked)}
             />
           </label>
-          <label>
-            Priority:
-            <input
-              type="text"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-            />
-          </label>
-          <label>
-            Due Date:
-            <input
-              type="text"
-              value={dueDate}
-              onChange={(e) => setDueDate(e.target.value)}
-            />
-          </label>
-          <button type="submit" disabled={isUpdating}>
+          </div>
+            <div className='flex space-x-6 py-2 px-2'>
+              <div>
+              <select value={priority}  onChange={(e) => setPriority(e.target.value)}>
+                <option value="">Select a priority</option>
+                <option value="priority 1">priority 1</option>
+                <option value="priority 2">priority 2</option>
+                <option value="priority 3">priority 3</option>
+              </select>
+            </div>
+            <div>
+              <label className="pb-2"> Choose Due Date:</label>
+
+              <DatePicker
+                selected={dueDate}
+                onChange={(date) => setDueDate(date)}
+                className="border border-gray-300 rounded px-2 py-1 mb-2"
+                required
+              />
+            </div>
+            </div>
+         <div  className="flex justify-between ">
+          <button 
+              className="text-white bg-[#645323] hover:bg-[#746029] focus:text-white ease-in py-1 px-8 rounded-md"
+              type="submit" disabled={isUpdating}>
             {isUpdating ? 'Updating...' : 'Save'}
           </button>
+         
+        <button
+              className="border py-1 px-6 rounded-md hover:bg-[#c9c8b4] "
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
         </form>
       </div>
     </div>

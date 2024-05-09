@@ -45,32 +45,36 @@ function TodoDetailOverlay({ todo, onClose, onDelete, onEdit, onUpdate }) {
         ) : (
           todo && (
             <>
-              <h1>To-Do List Detail</h1>
-              <h2>Task: {todo.task}</h2>
-              <p>Completed: {todo.completed ? 'Yes' : 'No'}</p>
-              <p>Priority: {todo.priority}</p>
-              <p>Due Date: {todo.dueDate}</p>
-              <div className="absolute top-2 right-2 flex gap-2">
+            <div className='p-4'>
+              <h1 className='pb-2'> To-Do List Detail</h1>
+              <h2  className='pb-2'>Task: {todo.task}</h2>
+              <p  className='pb-2'> Completed: {todo.completed ? 'Yes' : 'No'}</p>
+              <p  className='pb-2'>Priority: {todo.priority}</p>
+              Due date: {todo.dueDate && new Date(todo.dueDate).toLocaleDateString('en-US')}
+              <div className="absolute top-4 right-12 flex gap-2">
                 <button
                   onClick={handleDelete}
                   disabled={isDeleting}
-                  className="text-gray-300 rounded-full p-2"
+                  className="text-gray-400 rounded-full p-2"
                 >
                   <Trash />
                 </button>
                 <button
                   onClick={handleEdit}
-                  className="text-gray-300 rounded-full p-2"
+                  className="text-gray-400 rounded-full p-2"
                 >
                   <Pen />
                 </button>
               </div>
-              <button
-                onClick={onClose}
-                className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded"
-              >
-                Close
-              </button>
+              <div className="flex justify-end mt-4">
+                <button
+                  onClick={onClose}
+                  className="border py-1 px-6 rounded-md hover:bg-[#c9c8b4]"
+                >
+                  Close
+                </button>
+              </div>
+              </div>
             </>
           )
         )}
