@@ -5,6 +5,7 @@ import ToDoListDetail from './pages/todolistdetail';
 import Home from './pages/Home'
 import Dashboard from './pages/sidebar'
 import TodolistEdit from './components/TodolistEdit';
+import Mainhome from './pages/Mainhome';
 function App() {
  
 
@@ -12,17 +13,18 @@ function App() {
     <Router>
     <>
     <div className="app">
-    <Layout>
+   
         <Switch>
-        <Route exact path="/" component={Dashboard} />
+       
+        <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/home" component={Home} />
   
           <Route exact path="/todos/:id" component={ToDoListDetail} />
           <Route path="/todos/:id/edit" component={TodolistEdit} />
-
+          <Layout> <Route exact path="/" component={Mainhome} /></Layout>
           {/* Add more routes for other pages */}
         </Switch>
-      </Layout>
+     
     </div>
     
     </>

@@ -29,7 +29,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col h-screen">
       <div className="sidebar flex flex-1 ">
-  <nav className="bg-[#d3d1c1] ">
+  <nav className="bg-[#b3a273] ">
     <button
       className="toggle-button flex px-3 mt-5 items-center"
       onClick={toggleSidebar}
@@ -69,7 +69,7 @@ const Dashboard = () => {
             }`}
             onClick={() => setSelectedLink('reports')}
           >
-            <button className="text-gray-800 focus:bg-[#645323] focus:text-white hover:bg-[#cac9b5] w-full ease-in pl-2 pr-40 py-2 rounded-md  active:bg-[#b8b898] flex items-center">
+            <button className="text-black focus:bg-[#645323] focus:text-white hover:bg-[#cac9b5] w-full ease-in pl-2 pr-40 py-2 rounded-md  active:bg-[#b8b898] flex items-center">
               <span className="icon mr-4">
                 <FontAwesomeIcon icon={faSearch} />
               </span>
@@ -80,7 +80,7 @@ const Dashboard = () => {
             className="w-full flex items-center"
             onClick={() => setSelectedLink('overview')}
           >
-            <button className="text-gray-800 focus:bg-[#645323] focus:text-white hover:bg-[#c9c8b4] w-full ease-in pl-2 pr-36 py-2 rounded-md flex items-center">
+            <button className="text-black focus:bg-[#645323] focus:text-white hover:bg-[#c9c8b4] w-full ease-in pl-2 pr-36 py-2 rounded-md flex items-center">
               <FontAwesomeIcon icon={faCalendar} className="mr-4" />
               Home
             </button>
@@ -90,7 +90,7 @@ const Dashboard = () => {
             className="w-full flex items-center"
             onClick={() => setSelectedLink('settings')}
           >
-            <button className="text-gray-800 focus:bg-[#645323] focus:text-white w-full hover:bg-[#c9c8b4] ease-in pl-2 pr-36 py-2 rounded-md  active:bg-[#b8b898] flex items-center">
+            <button className="text-black focus:bg-[#645323] focus:text-white w-full hover:bg-[#c9c8b4] ease-in pl-2 pr-36 py-2 rounded-md  active:bg-[#b8b898] flex items-center">
               <FontAwesomeIcon icon={faCalendar} className="mr-4" />
               Settings
             </button>
@@ -100,7 +100,7 @@ const Dashboard = () => {
     )}
   </nav>
 
-  <main className="flex-1 px-32 py-12 bg-[#fbfcfa]">
+  <main className="flex-1 px-32 py-12 bg-[#fffef6]">
     {selectedLink === 'overview' && <Home todos={todos} />}
     {selectedLink === 'reports' && <ReportsContent />}
     {selectedLink === 'settings' && <SettingsContent />}
