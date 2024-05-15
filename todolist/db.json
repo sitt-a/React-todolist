@@ -1,46 +1,68 @@
 {
-  "todos": [
+  "users": [
     {
-      "id": "3e70",
-      "task": "kl",
-      "priority": "priority 3",
-      "dueDate": "5/4/2024",
-      "completed": true
+      "id": "abc123",
+      "password": "123",
+      "username": "John",
+      "todos": [
+        {
+          "id": "3e70",
+          "task": "kl",
+          "priority": "priority 3",
+          "dueDate": "5/4/2024",
+          "completed": true
+        },
+        {
+          "id": "6c90",
+          "task": "hi",
+          "priority": "priority 3",
+          "dueDate": "5/9/2024",
+          "completed": true
+        },
+        {
+          "id": "be86",
+          "task": "nm",
+          "priority": "",
+          "dueDate": "2024-05-30T21:00:00.000Z",
+          "completed": false
+        },
+        {
+          "id": "fd51",
+          "task": "hibi",
+          "priority": "",
+          "dueDate": "2024-05-09T17:51:31.903Z",
+          "completed": false
+        },
+        {
+          "id": "248d",
+          "task": "final",
+          "priority": "priority 1",
+          "dueDate": "2024-05-11T09:14:43.000Z",
+          "completed": false
+        },
+        {
+          "id": "ba79",
+          "task": "ui ux",
+          "priority": "",
+          "dueDate": "2024-05-10T09:15:17.801Z",
+          "completed": false
+        }
+      ]
     },
     {
-      "id": "6c90",
-      "task": "hi",
-      "priority": "priority 3",
-      "dueDate": "5/9/2024",
-      "completed": true
-    },
-    {
-      "id": "be86",
-      "task": "nm",
-      "priority": "",
-      "dueDate": "2024-05-30T21:00:00.000Z",
-      "completed": false
-    },
-    {
-      "id": "fd51",
-      "task": "hibi",
-      "priority": "",
-      "dueDate": "2024-05-09T17:51:31.903Z",
-      "completed": false
-    },
-    {
-      "id": "248d",
-      "task": "final",
-      "priority": "priority 1",
-      "dueDate": "2024-05-11T09:14:43.000Z",
-      "completed": false
-    },
-    {
-      "id": "ba79",
-      "task": "ui ux",
-      "priority": "",
-      "dueDate": "2024-05-10T09:15:17.801Z",
-      "completed": false
+      "id": "def456",
+      "password": "124",
+      "username": "Jane",
+      "todos": [
+        {
+          "id": "1234",
+          "task": "example",
+          "priority": "priority 2",
+          "dueDate": "5/15/2024",
+          "completed": false
+        }
+      ]
     }
+ 
   ]
 }

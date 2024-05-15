@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/sidebar'
 import TodolistEdit from './components/TodolistEdit';
 import Mainhome from './pages/Mainhome';
+import Login from './pages/Login';
 import Service from './components/service';
 function App() {
  
@@ -18,11 +19,13 @@ function App() {
         <Switch>
        
         <Route exact path="/dashboard" component={Dashboard} />
-
+       
   
           <Route exact path="/todos/:id" component={ToDoListDetail} />
           <Route path="/todos/:id/edit" component={TodolistEdit} />
-          <Layout> <Route exact path="/" component={Mainhome} /></Layout>
+          <Layout> <Route exact path="/" component={Mainhome} />
+          <Route exact path="/login" component={Login} />
+          </Layout>
          
           {/* Add more routes for other pages */}
         </Switch>
