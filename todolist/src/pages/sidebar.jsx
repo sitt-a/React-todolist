@@ -29,7 +29,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col h-screen">
       <div className="sidebar flex flex-1 ">
-  <nav className="bg-[#b3a273] ">
+  <nav className="bg-[#ece4cc] ">
     <button
       className="toggle-button flex px-3 mt-5 items-center"
       onClick={toggleSidebar}
@@ -100,7 +100,7 @@ const Dashboard = () => {
     )}
   </nav>
 
-  <main className="flex-1 px-32 py-12 bg-[#fffef6]">
+  <main className="flex-1 px-32 py-12 bg-white">
     {selectedLink === 'overview' && <Home todos={todos} />}
     {selectedLink === 'reports' && <ReportsContent />}
     {selectedLink === 'settings' && <SettingsContent />}

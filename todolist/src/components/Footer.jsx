@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#e6e4dc] py-12 w-full"> {/* Added px-4 for horizontal padding */}
+    <footer className="bg-[#f2f3ed]  py-12 w-full"> {/* Added px-4 for horizontal padding */}
       <div className="grid grid-cols-5 gap-32 w-[100%] mx-auto justify-items-center"> {/* Grid for five columns, justify-items-center for vertical centering */}
         <div className="">
           <h3 className="text-black text-lg font-semibold mb-4">Column 1</h3>

@@ -121,14 +121,14 @@ const Addtask = ({ onTaskAdded, onclose }) => {
           <div className="flex justify-between">
             <button
               onClick={handleSubmit}
-              className="text-white bg-[#645323] hover:bg-[#746029] focus:text-white ease-in py-1 px-6 rounded-md"
+              className="text-white bg-[#a18330] hover:bg-[#8d732a] focus:text-white ease-in py-1 px-6 rounded-md"
               disabled={!formValid} // Disable the button when the form is invalid
             >
               Submit
             </button>
 
             <button
-              className="border py-1 px-6 rounded-md hover:bg-[#c9c8b4] "
+              className="border py-1 px-6 rounded-md hover:bg-[#e7e7e1] "
               onClick={handleClose}
             >
               Close
