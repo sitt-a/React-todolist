@@ -7,8 +7,9 @@ export default function Mainhome() {
   return (
     <div>
         <Herosection></Herosection>
-        <Pricing></Pricing>
+       
         <Service></Service>
+        <Pricing></Pricing>
     </div>
   )
 }
