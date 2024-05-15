@@ -20,9 +20,9 @@ function Service() {
 
   return (
     <div className='flex justify-center items-center w-full px-24 space-x-16'>
-      <div className='content-wrapper w-[80%] text-left text-md mt-20'> {/* Added margin-top: 16px */}
-        <div className='text-black pb-6 text-xl font-bold'>Capture tasks at the speed of thought</div>
-        <div className='w-full  mb-4 text-gray-600 bg-gray-100 h-30 p-6 rounded-lg'><p className='w-[81%] '>We’ve spent over a decade refining how people add tasks to Todoist. Our goal? To make a to-do list that feels like a natural extension of your mind.</p></div>
+      <div className='content-wrapper w-[80%] text-left text-lg mt-20'> {/* Added margin-top: 16px */}
+        <div className='text-black pb-4 text-4xl font-bold'> <p className='w-[70%]'>Capture tasks at the speed of thought</p></div>
+        <div className='w-full  mb-4 text-gray-600 h-30 py-6 text-xl '><p className='w-[95%] '>We’ve spent over a decade refining how people add tasks to Todoist. Our goal? To make a to-do list that feels like a natural extension of your mind.</p></div>
         <div className='w-full mb-4 text-gray-600 p-6 bg-gray-100 rounded-lg'><p className='w-[80%]'>Quick add will quickly become your superpower. Capture and organize tasks the moment they come to you with easy-flowing, natural language.</p></div>
         <div className='w-full mb-4  text-gray-600 p-6 bg-gray-100 rounded-lg'>Recurring Due dates</div>
         <div className='w-full mb-4 text-gray-600 p-6 bg-gray-100 rounded-lg'>Reminders</div>

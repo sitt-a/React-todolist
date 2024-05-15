@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white py-5 p-0 ">
       <div className="container mx-auto  flex justify-between items-center md:flex-row flex-col">
-        <div className="text-black font-semibold text-3xl  ">TodoList</div>
+        <div className="text-black font-semibold text-3xl  ">Quantum</div>
         <div className="flex  text-black mt-4 md:mt-0">
   <a href="#" className="bg-transparent hover:bg-[#eeeeed] text-black font-semibold text-lg py-1 px-5 rounded inline-block">
    Home
